@@ -1,0 +1,108 @@
+/* Estilos generales de la página */
+.main-container {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+/* 1. Fondo oscuro/semitransparente que cubre toda la pantalla (Overlay) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+/* 2. Caja centrado del Modal */
+.modal-container {
+  background-color: #fff;
+  padding: 24px 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 90%;
+  max-width: 500px; /* Ancho máximo */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Botón de cerrar ('X') en la esquina superior derecha */
+.btn-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.btn-close:hover {
+  color: #000;
+}
+
+/* Animación suave al abrir */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botones de acción */
+.btn-open, .btn-primaryy {
+  padding: 10px 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-open:hover, .btn-primaryy:hover {
+  background-color: #0056b3;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:disabled {
+  background-color: #f0f0f0;
+  color: #555;
+  cursor: not-allowed;
+}

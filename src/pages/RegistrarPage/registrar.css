@@ -1,0 +1,118 @@
+/* --- Página de Registro (Split Screen Inverso) --- */
+.register-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--white);
+}
+
+/* Sección del formulario (ahora a la izquierda) */
+.register-form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    order: 1; /* Obliga al formulario a estar primero visualmente */
+}
+
+.register-form-container {
+    width: 100%;
+    max-width: 450px; /* Un poco más ancho que el login porque tiene más campos */
+}
+
+/* Sección de la imagen (ahora a la derecha) */
+.register-image-section {
+    flex: 1.2;
+    background-color: var(--primary-color);
+    background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    order: 2; /* Obliga a la imagen a estar segunda visualmente */
+}
+
+.register-image-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(44, 62, 80, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-image-overlay h2 {
+    color: var(--white);
+    font-size: 3.5rem;
+    text-align: center;
+    padding: 0 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.register-header {
+    margin-bottom: 2rem;
+}
+
+.register-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.register-header p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Reutilizamos las clases form-group y full-width del login */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.register-btn {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+}
+
+.login-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.login-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.auth-switch{
+    margin-top: 5px;
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 900px) {
+    .register-image-section {
+        display: none;
+    }
+    
+    .register-form-section {
+        background-color: var(--bg-color); 
+    }
+    
+    .register-form-container {
+        background-color: var(--white);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+}

@@ -1,0 +1,336 @@
+/* =========================================
+   PANEL DE USUARIO (DASHBOARD COMPLETO)
+========================================= */
+
+/* --- 1. Estructura General --- */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.dashboard-section {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 2. Barra Lateral (Sidebar) --- */
+.dashboard-sidebar {
+    width: 280px;
+    background-color: var(--white);
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.02);
+}
+
+.sidebar-profile {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.sidebar-profile h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-profile p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.sidebar-nav {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.nav-item.active {
+    background-color: #f0f4f8;
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.text-danger {
+    color: #e74c3c !important;
+    margin-top: auto;
+}
+
+/* --- 3. Contenido Principal --- */
+.dashboard-content {
+    flex: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2.5rem;
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+/* --- 4. Tarjetas de Historial de Reservas --- */
+.reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.reservation-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.res-image {
+    width: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.res-details {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.res-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.res-header h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Etiquetas (Badges) de Estado */
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.status-confirmed { background-color: #d4edda; color: #155724; }
+.status-pending { background-color: #fff3cd; color: #856404; }
+.status-cancelled { background-color: #f8d7da; color: #721c24; }
+
+.res-info p {
+    color: #555;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.res-actions {
+    padding: 1.5rem;
+    background-color: #fcfcfc;
+    border-left: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+}
+
+.res-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.btn-sm {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.btn-danger {
+    background-color: transparent;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #e74c3c;
+    color: var(--white);
+}
+
+/* --- 5. Formulario de Nueva Reserva --- */
+.booking-form {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    margin-top: 1rem;
+}
+
+.booking-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.booking-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.booking-form .form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.booking-form .form-group input,
+.booking-form .form-group select {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+}
+
+.booking-form .form-group input:focus,
+.booking-form .form-group select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+    outline: none;
+}
+
+.booking-summary {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- 6. Diseño Responsivo (Celulares y Tablets) --- */
+@media (max-width: 900px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0;
+    }
+    
+    .nav-item {
+        border-left: none;
+        border-bottom: 4px solid transparent;
+        white-space: nowrap;
+    }
+    
+    .nav-item.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-color);
+    }
+    
+    .reservation-card {
+        flex-direction: column;
+    }
+    
+    .res-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .res-actions {
+        border-left: none;
+        border-top: 1px solid #eee;
+    }
+
+    .booking-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
